@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+        integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous" />
+    <link rel="stylesheet" href="style.css">
+    <title>Morsy</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap');
+
+        .description {
+            font-family: 'Indie Flower', 'cursive';
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <h1 class="text-center logo">Cryp<span class="text-danger">tico</span></h1>
+        <div class="row mt-5">
+            <div class="col-lg-6">
+                <p>&nbsp;</p>
+                <p>&nbsp;</p>
+                <p>&nbsp;</p>
+                <p>&nbsp;</p>
+                <div class="container-fluid">
+                    <h2 class="">What we are?</h2>
+                    <h3 class="description"><b>Cryptico</b> is a online Crypto news platform, where you can check live
+                        Crypto
+                        values, You can convert one crypto currenciy to another. Also you will get all latest crypto
+                        news and updates on this platform.</h3>
+                </div>
+                <p>&nbsp;</p>
+            </div>
+            <div class="col-lg-6">
+                <img class="img-responsive" src="cryp.png" alt="">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-6">
+                <h2 class="text-primary text-center">BTC: <span id="btc"></span>USD</h2>
+            </div>
+            <div class="col-xs-6">
+                <h2 class="text-primary text-center">ETH: <span id="eth"></span>USD</h2>
+            </div>
+        </div>
+
+
+    </div>
+    <script>
+        let api = ""
+        async function getdata(api) {
+            let btc = document.getElementById("btc");
+            let eth = document.getElementById("eth");
+            const response = await fetch(api);
+            var data = await response.json();
+            btc.innerHTML = data['rates']['BTC'];
+            eth.innerHTML = data['rates']['ETH'];
+        }
+        getdata(api);
+    </script>
+</body>
+
+</html>
