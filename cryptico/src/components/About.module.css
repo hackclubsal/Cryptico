@@ -1,0 +1,13 @@
+.body {
+  flex-flow: row;
+}
+
+.poster {
+  width: 990px;
+  height: 990px;
+}
+@import url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap');
+h3 {
+  font-size: 2rem;
+  font-family: 'Indie Flower';
+}
