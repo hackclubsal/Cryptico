@@ -22,6 +22,9 @@
   </head>
 
   <body>
+    <div class='spinner-wrapper'>
+      <div class="spinner"></div>
+    </div>
     <div class="container-fluid">
       <h1 class="center logo">Cryp<span class="text-danger">tico</span></h1>
       <div class="row mt-5">
@@ -80,6 +83,12 @@
       </div>
     </div>
     <script>
+      let spinnerWrapper = document.querySelector('.spinner-wrapper');
+
+      window.addEventListener('load', function () {
+        //spinnerWrapper.style.display = 'none';
+        spinnerWrapper.parentElement.removeChild(spinnerWrapper);
+      });
       let api =
         'http://api.coinlayer.com/live?access_key=c86a5511c71b1a13c9eebf55e276d424';
       async function getdata(api) {
@@ -91,6 +100,7 @@
         console.log(data);
         btc.innerHTML = data['rates']['BTC'];
         eth.innerHTML = data['rates']['ETH'];
+
       }
       getdata(api);
     </script>
